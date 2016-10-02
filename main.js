@@ -48,6 +48,19 @@ var join = function(node1, node2) {
     cur.next = node2;
 };
 
+//Remove a value from a linked list, assuming not removing first node
+var remove = function(node, value) {
+    var cur = node;
+    while (cur.next !== null) {
+        if (cur.next.value === value) {
+            cur.next = cur.next.next;
+            return true;
+        }
+        cur = cur.next;
+    }
+    return false;
+};
+
 
 console.log("initial list");
 print(x);
@@ -63,4 +76,9 @@ console.log(containsVal(x, 5));
 console.log("join two linked lists");
 var y = {value: 6, next:{value: 7, next:{value: 8, next: null}}};
 join(x, y);
+print(x);
+
+console.log("remove a value from a linked list");
+console.log(remove(x, 3));
+console.log(remove(x, 22));
 print(x);
