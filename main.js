@@ -61,6 +61,25 @@ var remove = function(node, value) {
     return false;
 };
 
+//Reverse a linked list and return new head node
+var reverse = function(node) {
+    if (node.next === null) {
+        return node;
+    }
+    var prev = node;
+    var cur = node.next;
+    var next = node.next.next;
+    node.next = null;
+    while (next !== null) {
+        cur.next = prev;
+        prev = cur;
+        cur = next;
+        next = next.next;
+    }
+    cur.next = prev;
+    return cur;
+};
+
 
 console.log("initial list");
 print(x);
@@ -82,3 +101,7 @@ console.log("remove a value from a linked list");
 console.log(remove(x, 3));
 console.log(remove(x, 22));
 print(x);
+
+console.log("reverse a linked list");
+var reversed = reverse(x);
+print(reversed);
