@@ -27,6 +27,18 @@ var append = function(node, value) {
     cur.next = {value: value, next: null};
 };
 
+//Determine whether linked list contains a given value using a loop
+var containsVal = function(node, value) {
+    var cur = node;
+    while (cur !== null) {
+        if (cur.value === value) {
+            return true;
+        }
+        cur = cur.next;
+    }
+    return false;
+};
+
 
 console.log("initial list");
 print(x);
@@ -34,3 +46,7 @@ print(x);
 console.log("append new value to list");
 append(x, 7);
 print(x);
+
+console.log("determine if given value in list");
+console.log(containsVal(x, 2));
+console.log(containsVal(x, 5));
