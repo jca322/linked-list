@@ -39,6 +39,15 @@ var containsVal = function(node, value) {
     return false;
 };
 
+//Combine two linked lists into a new list
+var join = function(node1, node2) {
+    var cur = node1;
+    while (cur.next !== null) {
+        cur = cur.next;
+    }
+    cur.next = node2;
+};
+
 
 console.log("initial list");
 print(x);
@@ -50,3 +59,8 @@ print(x);
 console.log("determine if given value in list");
 console.log(containsVal(x, 2));
 console.log(containsVal(x, 5));
+
+console.log("join two linked lists");
+var y = {value: 6, next:{value: 7, next:{value: 8, next: null}}};
+join(x, y);
+print(x);
